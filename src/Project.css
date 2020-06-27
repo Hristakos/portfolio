@@ -1,0 +1,21 @@
+.project-container {
+    display: grid;
+    grid-template-rows: .1fr 1fr .5fr .1fr;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 50px;
+    width: 80%;
+    margin: 0 10%;
+    
+}
+
+.project-container .project-name {
+    text-transform: uppercase;
+    align-items: center;
+    line-height: 100px;
+}
+
+.project-container img {
+    width: 100%;
+}
+

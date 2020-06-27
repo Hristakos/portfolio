@@ -12,24 +12,40 @@ export default function FilingCabinet(props) {
                     <div className="handle"></div>
                 </div>
                 <div onClick={() => props.onFileClick(0)}
-                    className={props.fileOpen[0] ? "file project1 move-right" : "file project1 "}
-                    style={{ display: props.drawerOpen[0] || props.fileOpen[0] ? "block" : "none" }}  >
-                    <File />
+                    className={props.fileOpen[0].open ? "file project1 move-right1" : "file project1 "}
+                >
+                    <File
+                        name="Tic Tac Toe"
+                        fileOpen={props.fileOpen[0]}
+                        link="/tic-tac-toe"
+                        img="/tic-tac-toe-afl.jpg" />
                 </div >
                 <div onClick={() => props.onFileClick(1)}
-                    className={props.fileOpen[1] ? "file project2 move-right" : "file project2 "}
-                    style={{ display: props.drawerOpen[0] || props.fileOpen[1] ? "block" : "none" }}  >
-                    <File />
+                    className={props.fileOpen[1].open ? "file project2 move-right2" : "file project2 "}
+                >
+                    <File
+                        name="Classic Car Parts"
+                        fileOpen={props.fileOpen[1]}
+                        link="/classic-car-parts"
+                        img="/classic-car-parts.jpg" />
                 </div >
                 <div onClick={() => props.onFileClick(2)}
-                    className={props.fileOpen[2] ? "file project3 move-right" : "file project3 "}
-                    style={{ display: props.drawerOpen[0] || props.fileOpen[2] ? "block" : "none" }}  >
-                    <File />
+                    className={props.fileOpen[2].open ? "file project3 move-right3" : "file project3 "}
+                >
+                    <File
+                        name="Beer Buddy"
+                        fileOpen={props.fileOpen[2]}
+                        link="/beer-buddy"
+                        img="/beer-buddy.jpg" />
                 </div >
                 <div onClick={() => props.onFileClick(3)}
-                    className={props.fileOpen[3] ? "file project4 move-right" : "file project4 "}
-                    style={{ display: props.drawerOpen[0] || props.fileOpen[3] ? "block" : "none" }}  >
-                    <File />
+                    className={props.fileOpen[3].open ? "file project4 move-right4" : "file project4 "}
+                >
+                    <File
+                        name="Stradbroke Printing Group"
+                        fileOpen={props.fileOpen[3]}
+                        link="/spg"
+                        img="/spg.jpg" />
                 </div >
 
             </div>
@@ -39,9 +55,13 @@ export default function FilingCabinet(props) {
                     <div className="handle"></div>
                 </div>
                 <div onClick={() => props.onFileClick(4)}
-                    className={props.fileOpen[4] ? "file project2 move-right" : "file project2 "}
-                    style={{ display: props.drawerOpen[1] || props.fileOpen[4] ? "block" : "none" }}  >
-                    <File />
+
+                    className={props.fileOpen[4].open ? "file resume move-rightr" : "file resume "}
+                >
+                    <File
+                        name="Resume"
+                        fileOpen={props.fileOpen[4]}
+                        link="https://hristakos.github.io/project1" />
                 </div >
 
             </div >

@@ -1,7 +1,13 @@
 import React from 'react';
+import {
+  Switch,
+  Route
+} from 'react-router-dom'
 import './App.css';
 import Computer from './Computer';
 import FilingCabinet from './FilingCabinet';
+import Project from './Project';
+import { ticTacToe, classicCarParts, beerBuddy, spg } from "./lib/projectData";
 
 const technologies = [
   "JavaScript",
@@ -20,7 +26,13 @@ class App extends React.Component {
   state = {
     screenText: "JavaScript",
     drawerOpen: [false, false],
-    fileOpen: [false, false, false, false, false]
+    fileOpen: [
+      { name: "project1", open: false },
+      { name: "project2", open: false },
+      { name: "project3", open: false },
+      { name: "project4", open: false },
+      { name: "resume", open: false }
+    ]
   }
 
 
@@ -40,51 +52,128 @@ class App extends React.Component {
   }
   setDrawOpen = (drawer) => {
     let drawerOpen = this.state.drawerOpen;
-    if (this.state.fileOpen.includes(true)) {
-      drawerOpen = [false, false];
-    } else {
-      if (drawer === 0) {
+    // if (this.state.fileOpen.includes(true)) {
+    //   drawerOpen = [false, false];
+    // } else {
+    if (drawer === 0) {
+      if (drawerOpen[0]) {
+        drawerOpen[0] = false;
+        drawerOpen[1] = false;
+      } else {
         drawerOpen[0] = true;
+        drawerOpen[1] = false;
+      }
+    } else if (drawer === 1) {
+      if (drawerOpen[1]) {
+        drawerOpen[0] = false;
         drawerOpen[1] = false;
       } else {
         drawerOpen[0] = false;
         drawerOpen[1] = true;
       }
     }
+    let fileOpen = this.state.fileOpen;
+    if (drawerOpen[0]) {
+      fileOpen.forEach(file => {
+        if (file.name !== "resume") {
+          file.open = true;
+        }
+      })
+    } else {
+      fileOpen.forEach(file => {
+        if (file.name !== "resume") {
+          file.open = false;
+        }
+      })
+    }
 
+    if (drawerOpen[1]) {
+      fileOpen.forEach(file => {
+        if (file.name === "resume") {
+          file.open = true;
+        }
+      })
+    } else {
+      fileOpen.forEach(file => {
+        if (file.name === "resume") {
+          file.open = false
+        }
+      })
 
-    this.setState({ drawerOpen })
+    }
+
+    this.setState({ drawerOpen, fileOpen })
   }
   handleFileClick = (file) => {
     let fileOpen = this.state.fileOpen;
-    if (!fileOpen[file]) {
-      fileOpen[file] = true;
-    }
+    // if (!fileOpen[file]) {
+    //   fileOpen[file] = true;
+    // }
     let drawerOpen = this.state.drawerOpen;
     if (file === 4) {
       drawerOpen[1] = true;
       drawerOpen[0] = false;
-    } else {
+    } else if (file !== 4) {
       drawerOpen[1] = false;
       drawerOpen[0] = true;
     }
     this.setState({ fileOpen, drawerOpen })
+    console.log("file = " + file)
 
   }
   render() {
     return (
       <div className="App" >
-        <div className="room-wrapper" >
-          <Computer
-            screenText={this.state.screenText}
-          />
-          <FilingCabinet
-            drawerOpen={this.state.drawerOpen}
-            onDrawerClick={this.setDrawOpen}
-            onFileClick={this.handleFileClick}
-            fileOpen={this.state.fileOpen}
-          />
-        </div>
+        <Switch>
+          <Route path="/tic-tac-toe">
+            <Project
+              name={ticTacToe.name}
+              img={ticTacToe.image}
+              description={ticTacToe.description}
+              link={ticTacToe.link}
+            />
+          </Route>
+          <Route path="/classic-car-parts">
+            <Project
+              name={classicCarParts.name}
+              img={classicCarParts.image}
+              description={classicCarParts.description}
+              link={classicCarParts.link}
+            />
+
+          </Route>
+          <Route path="/beer-buddy">
+            <Project
+              name={beerBuddy.name}
+              img={beerBuddy.image}
+              description={beerBuddy.description}
+              link={beerBuddy.link}
+            />
+          </Route>
+          <Route path="/spg">
+            <Project
+              name={spg.name}
+              img={spg.image}
+              description={spg.description}
+              link={spg.link}
+            />
+
+          </Route>
+
+          <Route path="/">
+            <div className="room-wrapper" >
+              <Computer
+                screenText={this.state.screenText}
+              />
+              <FilingCabinet
+                drawerOpen={this.state.drawerOpen}
+                onDrawerClick={this.setDrawOpen}
+                onFileClick={this.handleFileClick}
+                fileOpen={this.state.fileOpen}
+              />
+            </div>
+          </Route>
+        </Switch>
       </div>
     );
   }
