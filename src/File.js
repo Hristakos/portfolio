@@ -16,12 +16,12 @@ const File = (props) => {
                         </div>
                         <div className="project-link"
                             style={{ display: props.fileOpen.open ? "block" : "none" }}>
-
                             <img src={props.img} />
-
-
                         </div>
+
                     </div >
+
+
                 </a>
             </div>
         </div>

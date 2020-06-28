@@ -8,6 +8,7 @@ import Computer from './Computer';
 import FilingCabinet from './FilingCabinet';
 import Project from './Project';
 import { ticTacToe, classicCarParts, beerBuddy, spg } from "./lib/projectData";
+import Resume from './Resume';
 
 const technologies = [
   "JavaScript",
@@ -27,11 +28,11 @@ class App extends React.Component {
     screenText: "JavaScript",
     drawerOpen: [false, false],
     fileOpen: [
-      { name: "project1", open: false },
-      { name: "project2", open: false },
-      { name: "project3", open: false },
-      { name: "project4", open: false },
-      { name: "resume", open: false }
+      { name: "tic tac toe", open: false, link: "/tic-tac-toe", img: "/tic-tac-toe-afl.jpg" },
+      { name: "classic car parts", open: false, link: "/classic-car-parts", img: "/classic-car-parts.jpg" },
+      { name: "beer buddy", open: false, link: "/beer-buddy", img: "/beer-buddy.jpg" },
+      { name: "stradbroke printing group", open: false, link: "/spg", img: "/spg.jpg" },
+      { name: "peter hristakos", open: false, link: "/resume", img: "/Hristakos-resume.png" }
     ]
   }
 
@@ -75,13 +76,13 @@ class App extends React.Component {
     let fileOpen = this.state.fileOpen;
     if (drawerOpen[0]) {
       fileOpen.forEach(file => {
-        if (file.name !== "resume") {
+        if (file.name !== "peter hristakos") {
           file.open = true;
         }
       })
     } else {
       fileOpen.forEach(file => {
-        if (file.name !== "resume") {
+        if (file.name !== "peter hristakos") {
           file.open = false;
         }
       })
@@ -89,13 +90,13 @@ class App extends React.Component {
 
     if (drawerOpen[1]) {
       fileOpen.forEach(file => {
-        if (file.name === "resume") {
+        if (file.name === "peter hristakos") {
           file.open = true;
         }
       })
     } else {
       fileOpen.forEach(file => {
-        if (file.name === "resume") {
+        if (file.name === "peter hristakos") {
           file.open = false
         }
       })
@@ -157,6 +158,10 @@ class App extends React.Component {
               description={spg.description}
               link={spg.link}
             />
+
+          </Route>
+          <Route path="/resume">
+            <Resume />
 
           </Route>
 
