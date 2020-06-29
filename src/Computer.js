@@ -17,6 +17,7 @@ export default function Computer(props) {
             </div>
             <div className="stand"><img src="apple-logo.png" alt="apple logo" /></div>
             <div className="base"></div>
+
         </div>
 
     )

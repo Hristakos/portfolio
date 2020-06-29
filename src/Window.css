@@ -4,6 +4,8 @@
     height: 200px;
     background-color: skyblue;
     border: solid 10px brown;
+    margin: 40px auto;
+    cursor: pointer;
 }
 .window-closed {
     display: grid;

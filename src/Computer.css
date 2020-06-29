@@ -4,13 +4,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* grid-column-start: 2; */
-    grid-row-start: 2;
     max-width: 400px;
+    margin: 0 auto;
 }
 .computer .monitor {
-    height: 400px;
-    width: 100%;
+    height: 200px;
+    width: 300px;
     background: #000;
     border-radius: 10px;
     border-bottom: 30px solid #d8d8d8;
@@ -62,6 +61,8 @@
 }
 
 .computer .stand img {
+    position: relative;
+    top: -22.5px;
     transform: scale(0.04);
 }
 

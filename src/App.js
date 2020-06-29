@@ -11,6 +11,8 @@ import { ticTacToe, classicCarParts, beerBuddy, spg } from "./lib/projectData";
 import Resume from './Resume';
 import Whiteboard from './Whiteboard';
 import Window from './Window';
+import Desk from './Desk';
+import Calendar from './Calendar';
 
 const technologies = [
   { name: "JavaScript", img: "/logo-javascript.png" },
@@ -23,8 +25,14 @@ const technologies = [
   { name: "Ruby", img: "/ruby-logo.png" },
   { name: "Sinatra", img: "/sinatra-logo.jpeg" }
 ]
+const calendarData = [
+  { image: "/GA-logo.png", year: "Mar - Jun 2020", description: "Software Engineering Immersive Student" },
+  { image: "/ontime-logo.jpeg", year: "2015 - 2020", description: "Delivery Driver" },
+  { image: "/Capital-logo.jpeg", year: "2013 - 2015", description: "Delivery Driver" }
+]
 let interval;
 let technologyIndex = 0;
+let clockInterval = 0;
 class App extends React.Component {
   state = {
     technology: technologies[0],
@@ -36,11 +44,16 @@ class App extends React.Component {
       { name: "stradbroke printing group", open: false, link: "/spg", img: "/spg.jpg" },
       { name: "peter hristakos", open: false, link: "/resume", img: "/Hristakos-resume.png" },
     ],
-    windowOpen: false
+    windowOpen: false,
+    bootsClicked: false,
+    date: new Date(),
+    calendarPage: 0
 
   }
 
-
+  startTimer = () => {
+    clockInterval = setInterval(() => this.setState({ date: new Date() }), 1000)
+  }
   startTechnologyChange = () => {
     interval = setInterval(() => {
       if (technologyIndex < technologies.length - 1) {
@@ -54,6 +67,7 @@ class App extends React.Component {
   };
   componentDidMount = () => {
     this.startTechnologyChange();
+    this.startTimer();
   }
   setDrawOpen = (drawer) => {
     let drawerOpen = this.state.drawerOpen;
@@ -129,9 +143,18 @@ class App extends React.Component {
 
   setWindowOpen = () => {
     console.log("window open");
-    this.setState({ WindowOpen: !this.state.WindowOpen })
+    this.setState({ windowOpen: !this.state.windowOpen })
+  }
+
+  bootsClicked = () => {
+    this.setState({ bootsClicked: !this.state.bootsClicked })
+  }
+
+  turnCalendarPage = () => {
+    this.setState({ calendarPage: this.state.calendarPage === 2 ? 0 : this.state.calendarPage += 1 })
   }
   render() {
+    const date = new Date()
     return (
       <div className="App" >
         <Switch>
@@ -164,21 +187,45 @@ class App extends React.Component {
 
           <Route path="/">
             <div className="room-wrapper" >
-              <Computer
-                technology={this.state.technology}
-              />
-              <FilingCabinet
-                drawerOpen={this.state.drawerOpen}
-                onDrawerClick={this.setDrawOpen}
-                onFileClick={this.handleFileClick}
-                fileOpen={this.state.fileOpen}
-              />
-              <Whiteboard />
+              <div className="backwall">
+                <FilingCabinet
+                  drawerOpen={this.state.drawerOpen}
+                  onDrawerClick={this.setDrawOpen}
+                  onFileClick={this.handleFileClick}
+                  fileOpen={this.state.fileOpen}
+                />
+                <Whiteboard />
+                <Calendar
+                  data={calendarData}
+                  handlePageClick={this.turnCalendarPage}
+                  currentPage={this.state.calendarPage} />
 
-              <Window
-                handleWindowClick={this.setWindowOpen}
-                windowOpen={this.state.WindowOpen} />
+                <div className="window-boots">
+                  <Window
+                    handleWindowClick={this.setWindowOpen}
+                    windowOpen={this.state.windowOpen} />
+                  <div>
+                    <img onClick={this.bootsClicked} src="/boots.jpeg"></img>
+                    <div style={{ display: this.state.bootsClicked ? "block" : "none" }}>Played for Maribyrnong Park Football Club 1990-2005</div>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+              <div className="frontwall">
+                <Computer
+                  technology={this.state.technology}
+                />
+
+                <Desk date={this.state.date} />
+              </div>
+
+
+
             </div>
+
           </Route>
         </Switch>
       </div>

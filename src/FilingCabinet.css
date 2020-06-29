@@ -108,7 +108,7 @@
 
   .move-right1 {
       transform: rotate(90deg) ;
-      right: -175%; 
+      /* right: -175%;  */
       height: 100%;
       display: flex;
       transition: all 1s;
@@ -117,33 +117,33 @@
   }
   .move-right2 {
     transform: rotate(90deg) ;
-    right: -350%;
+    /* right: 0%; */
     height: 100%;
     display: flex;
     transition: all 1s;
-    bottom: -20px;
+    bottom: -250%;
 }
 .move-right3 {
     transform: rotate(90deg) ;
-    right: -525%;
+    /* right: -175%; */
     height: 100%;
     display: flex;
     transition: all 1s;
-    bottom: -40px;
+    bottom: -500%;
     
 }
 .move-right4 {
   transform: rotate(90deg) ;
-  right: -700%;
+  /* right: -175%; */
   height: 100%;
   display: flex;
   transition: all 1s;
-  bottom: -60px;
+  bottom: -750%;
   
 }
 .move-rightr {
     transform: rotate(90deg) ;
-    right: -175%; 
+    /* right: -175%;  */
     height: 100%;
     display: flex;
     transition: all 1s;

@@ -1,3 +1,6 @@
+.whiteboard-wrapper {
+    margin: 40px auto;
+}
 .whiteboard {
     width: 250px;
     height: 200px;
@@ -7,6 +10,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     font-family: 'Gloria Hallelujah', cursive;
+ 
    
     
 }
@@ -22,6 +26,7 @@
     transform: skew(-20deg);
     display: flex;
     justify-content: center;
+   
 
    
 }

@@ -1,0 +1,172 @@
+.calendar {
+    background-color: white;
+    /* margin: 80px auto; */
+    width: 250px;
+    height: 200px;
+    
+}
+.calendar-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px auto;
+
+} 
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid black;
+   
+  }
+
+  .inner-triangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: 2px;
+    border-left: 22px solid transparent;
+    left: -22px;
+    border-right: 22px solid transparent;
+    border-bottom: 47px solid oldlace;
+    
+}
+.calendar .picture {
+    width: 100%;
+    height: 50%;
+    cursor: pointer;
+    border-bottom: black solid 1px ;
+   
+}
+
+.calendar .year {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50%;
+    transition: all 1s;
+}
+
+.calendar .picture img {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.calendar:hover   {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0)  ;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    
+}
+.page-clicked0 {
+    animation: flip-up0;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transition: ease-out;
+   
+   
+}
+.page-clicked1 {
+    animation: flip-up1;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transition: ease-out;
+}
+.page-clicked2 {
+    animation: flip-up2;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transition: ease-out;
+}
+
+.calendar:hover   {
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0) ;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+}
+/* Curl Top Right */
+.hvr-curl-top-right {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0) ;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+  }
+  .calendar:hover:before {
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    top: 0;
+    right: 0;
+    background: white;
+    /* IE9 */
+    background: linear-gradient(225deg, white 45%, #aaa 50%, #ccc 56%, white 80%);
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.4);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: width, height;
+    transition-property: width, height;
+  }
+  .calendar:hover:before, .hvr-curl-top-right:focus:before, .hvr-curl-top-right:active:before {
+    width: 25px;
+    height: 25px;
+  }
+
+  @keyframes flip-up0 {
+    
+        from {
+           transform: scaleY(-1);
+            position: relative;
+            top: -25%;
+           background: url("/Capital-logo.jpeg");
+         }
+        to {
+            /* transform: scaleY(1) scaleX(1); */
+            top: 0;
+            transform: scaleY(1);
+        }
+  }
+
+  @keyframes flip-up1 {
+    
+    from {
+        transform: scaleY(-1);
+        position: relative;
+        top: -25%;
+        background: url("/GA-logo.png");
+     }
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes flip-up2 {
+    
+    from {
+      
+        transform: scaleY(-1);
+         background: url("/ontime-logo.jpeg");
+        
+        position: relative;
+        top: -25%;
+     }
+    to {
+        transform: scaleY(1);
+    }
+}
