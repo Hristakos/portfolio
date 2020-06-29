@@ -12,7 +12,7 @@ export default function Computer(props) {
         <div className="computer">
             <div className="monitor">
                 <div className="screen">
-                    {props.screenText}
+                    <img className="glideInUp" src={props.technology.img} alt={props.technology.name} />
                 </div>
             </div>
             <div className="stand"><img src="apple-logo.png" alt="apple logo" /></div>

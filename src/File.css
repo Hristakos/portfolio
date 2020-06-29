@@ -8,7 +8,7 @@
     justify-content: center;
     padding: 10px 30px;
     margin: 10px;
-    cursor: default;
+   
 }
 
 .file-closed {
@@ -40,8 +40,47 @@
   
 }
 
-.file-open:hover iframe {
-    transform: scale(5);
+.file-open:hover   {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0) rotate(-90deg) ;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+}
+.file-open:hover .page {
+
+    
 }
 
+/* Curl Top Right */
+.hvr-curl-top-right {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0) ;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+  }
+  .file-open:hover:before {
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    top: 0;
+    right: 0;
+    background: white;
+    /* IE9 */
+    background: linear-gradient(225deg, white 45%, #aaa 50%, #ccc 56%, white 80%);
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.4);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: width, height;
+    transition-property: width, height;
+  }
+  .file-open:hover:before, .hvr-curl-top-right:focus:before, .hvr-curl-top-right:active:before {
+    width: 25px;
+    height: 25px;
+  }
 

@@ -7,10 +7,11 @@ const File = (props) => {
             <div className="file-closed" style={{ display: props.fileOpen.open ? "none" : "" }}>
                 {props.name}
             </div>
-            <div className={props.fileOpen.open ? "file-open" : ""}
-                style={{ display: props.fileOpen.open ? "block" : "none" }}>
-                <a href={props.link}>
-                    <div className="page" style={{ backgroundColor: props.fileOpen.open ? "white" : "" }}>
+            <a href={props.link}>
+                <div className={props.fileOpen.open ? "file-open" : ""}
+                    style={{ display: props.fileOpen.open ? "block" : "none" }}>
+
+                    <div className="page">
                         <div className="project-name">
                             {props.name}
                         </div>
@@ -22,9 +23,10 @@ const File = (props) => {
                     </div >
 
 
-                </a>
-            </div>
-        </div>
+
+                </div>
+            </a>
+        </div >
 
     );
 }

@@ -9,47 +9,51 @@ import FilingCabinet from './FilingCabinet';
 import Project from './Project';
 import { ticTacToe, classicCarParts, beerBuddy, spg } from "./lib/projectData";
 import Resume from './Resume';
+import Whiteboard from './Whiteboard';
+import Window from './Window';
 
 const technologies = [
-  "JavaScript",
-  "React",
-  "Node",
-  "Express",
-  "HTML",
-  "CSS",
-  "Swift (IOS)",
-  "Ruby",
-  "Sinatra"
+  { name: "JavaScript", img: "/logo-javascript.png" },
+  { name: "React", img: "/react-logo.png" },
+  { name: "Node", img: "/node-logo.png" },
+  { name: "Express", img: "/express-logo.png" },
+  { name: "HTML", img: "/html-logo.png" },
+  { name: "CSS", img: "/css-logo.png" },
+  { name: "Swift (IOS)", img: "/swift-logo.png" },
+  { name: "Ruby", img: "/ruby-logo.png" },
+  { name: "Sinatra", img: "/sinatra-logo.jpeg" }
 ]
 let interval;
-let screenTextIndex = 0;
+let technologyIndex = 0;
 class App extends React.Component {
   state = {
-    screenText: "JavaScript",
+    technology: technologies[0],
     drawerOpen: [false, false],
     fileOpen: [
       { name: "tic tac toe", open: false, link: "/tic-tac-toe", img: "/tic-tac-toe-afl.jpg" },
       { name: "classic car parts", open: false, link: "/classic-car-parts", img: "/classic-car-parts.jpg" },
       { name: "beer buddy", open: false, link: "/beer-buddy", img: "/beer-buddy.jpg" },
       { name: "stradbroke printing group", open: false, link: "/spg", img: "/spg.jpg" },
-      { name: "peter hristakos", open: false, link: "/resume", img: "/Hristakos-resume.png" }
-    ]
+      { name: "peter hristakos", open: false, link: "/resume", img: "/Hristakos-resume.png" },
+    ],
+    windowOpen: false
+
   }
 
 
-  startScreenTextChange = () => {
+  startTechnologyChange = () => {
     interval = setInterval(() => {
-      if (screenTextIndex < technologies.length - 1) {
-        screenTextIndex += 1;
+      if (technologyIndex < technologies.length - 1) {
+        technologyIndex += 1;
       } else {
-        screenTextIndex = 0;
+        technologyIndex = 0;
       }
-      this.setState({ screenText: technologies[screenTextIndex] })
-    }, 3000);
+      this.setState({ technology: technologies[technologyIndex] })
+    }, 5000);
     console.log(interval)
   };
   componentDidMount = () => {
-    this.startScreenTextChange();
+    this.startTechnologyChange();
   }
   setDrawOpen = (drawer) => {
     let drawerOpen = this.state.drawerOpen;
@@ -122,41 +126,34 @@ class App extends React.Component {
     console.log("file = " + file)
 
   }
+
+  setWindowOpen = () => {
+    console.log("window open");
+    this.setState({ WindowOpen: !this.state.WindowOpen })
+  }
   render() {
     return (
       <div className="App" >
         <Switch>
           <Route path="/tic-tac-toe">
             <Project
-              name={ticTacToe.name}
-              img={ticTacToe.image}
-              description={ticTacToe.description}
-              link={ticTacToe.link}
+              data={ticTacToe}
             />
           </Route>
           <Route path="/classic-car-parts">
             <Project
-              name={classicCarParts.name}
-              img={classicCarParts.image}
-              description={classicCarParts.description}
-              link={classicCarParts.link}
+              data={classicCarParts}
             />
 
           </Route>
           <Route path="/beer-buddy">
             <Project
-              name={beerBuddy.name}
-              img={beerBuddy.image}
-              description={beerBuddy.description}
-              link={beerBuddy.link}
+              data={beerBuddy}
             />
           </Route>
           <Route path="/spg">
             <Project
-              name={spg.name}
-              img={spg.image}
-              description={spg.description}
-              link={spg.link}
+              data={spg}
             />
 
           </Route>
@@ -168,7 +165,7 @@ class App extends React.Component {
           <Route path="/">
             <div className="room-wrapper" >
               <Computer
-                screenText={this.state.screenText}
+                technology={this.state.technology}
               />
               <FilingCabinet
                 drawerOpen={this.state.drawerOpen}
@@ -176,6 +173,11 @@ class App extends React.Component {
                 onFileClick={this.handleFileClick}
                 fileOpen={this.state.fileOpen}
               />
+              <Whiteboard />
+
+              <Window
+                handleWindowClick={this.setWindowOpen}
+                windowOpen={this.state.WindowOpen} />
             </div>
           </Route>
         </Switch>

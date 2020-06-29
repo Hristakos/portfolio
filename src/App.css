@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-background-color: lightgray;
+background-color: oldlace;
 }
 .App {
   text-align: center;
@@ -46,9 +46,11 @@ a {
 
 
 .App .room-wrapper {
+  margin: 20px;
+  grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+
 }
 @keyframes App-logo-spin {
   from {
