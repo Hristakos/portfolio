@@ -1,7 +1,9 @@
 import React from 'react';
 import {
   Switch,
-  Route
+  Route,
+  Router,
+  Redirect
 } from 'react-router-dom'
 import './App.css';
 import Computer from './Computer';
@@ -26,7 +28,7 @@ const technologies = [
   { name: "Sinatra", img: "/sinatra-logo.jpeg" }
 ]
 const calendarData = [
-  { image: "/GA-logo.png", year: "Mar - Jun 2020", description: "Software Engineering Immersive Student" },
+  { image: "/GA-logo.png", year: "Mar - Jun 2020", description: "Software Engineering Immersive Graduate" },
   { image: "/ontime-logo.jpeg", year: "2015 - 2020", description: "Delivery Driver" },
   { image: "/Capital-logo.jpeg", year: "2013 - 2015", description: "Delivery Driver" }
 ]
@@ -47,7 +49,8 @@ class App extends React.Component {
     windowOpen: false,
     bootsClicked: false,
     date: new Date(),
-    calendarPage: 0
+    calendarPage: 0,
+    splash: true
 
   }
 
@@ -69,6 +72,7 @@ class App extends React.Component {
     this.startTechnologyChange();
     this.startTimer();
   }
+
   setDrawOpen = (drawer) => {
     let drawerOpen = this.state.drawerOpen;
     // if (this.state.fileOpen.includes(true)) {
@@ -153,10 +157,14 @@ class App extends React.Component {
   turnCalendarPage = () => {
     this.setState({ calendarPage: this.state.calendarPage === 2 ? 0 : this.state.calendarPage += 1 })
   }
+  setSplash = () => {
+    this.setState({ splash: !this.state.splash })
+  }
   render() {
     const date = new Date()
     return (
       <div className="App" >
+
         <Switch>
           <Route path="/tic-tac-toe">
             <Project
@@ -185,7 +193,8 @@ class App extends React.Component {
 
           </Route>
 
-          <Route path="/">
+          <Route path="/home">
+
             <div className="room-wrapper" >
               <div className="backwall">
                 <FilingCabinet
@@ -221,14 +230,55 @@ class App extends React.Component {
 
                 <Desk date={this.state.date} />
               </div>
-
-
-
             </div>
-
           </Route>
-        </Switch>
-      </div>
+          <Route path="/">
+            {this.state.splash ?
+
+              <div className="room-wrapper" >
+                <div className="splash"
+                  onClick={this.setSplash}>Welcome to my office. Feel free to click around.</div>
+                <div className="backwall">
+                  <FilingCabinet
+                    drawerOpen={this.state.drawerOpen}
+                    onDrawerClick={this.setDrawOpen}
+                    onFileClick={this.handleFileClick}
+                    fileOpen={this.state.fileOpen}
+                  />
+                  <Whiteboard />
+                  <Calendar
+                    data={calendarData}
+                    handlePageClick={this.turnCalendarPage}
+                    currentPage={this.state.calendarPage} />
+
+                  <div className="window-boots">
+                    <Window
+                      handleWindowClick={this.setWindowOpen}
+                      windowOpen={this.state.windowOpen} />
+                    <div>
+                      <img onClick={this.bootsClicked} src="/boots.jpeg"></img>
+                      <div style={{ display: this.state.bootsClicked ? "block" : "none" }}>Played for Maribyrnong Park Football Club 1990-2005</div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+
+                <div className="frontwall">
+                  <Computer
+                    technology={this.state.technology}
+                  />
+
+                  <Desk date={this.state.date} />
+                </div>
+              </div>
+              : <Redirect to="/home" />}
+          </Route>
+
+
+        </Switch >
+      </div >
     );
   }
 }

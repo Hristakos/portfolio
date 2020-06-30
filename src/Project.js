@@ -9,7 +9,7 @@ export default function Project(props) {
             <div className="project-description">{props.data.description}</div>
             <div className="buttons">
 
-                <a className="back-button" href="/">Back</a>
+                <a className="back-button" href="/home">Back</a>
                 <a className="go-button" href={props.data.link}>Go</a>
             </div>
 

@@ -4,7 +4,7 @@ export default function Window(props) {
 
     return (
         <div className="frame">
-            <div className="window-open"
+            <div className="window-open tilt-in-fwd-tr "
                 onClick={props.handleWindowClick}
                 style={{ display: props.windowOpen ? "flex" : "none" }}>
                 <div className="vision-statement"
