@@ -24,9 +24,16 @@
     padding: 10px;
     color: white;
     position: relative;
-    top: -25px;
+    top: -112px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100px;
+}
+
+.right-side-desk {
+    display: grid;
+    flex-direction: column;
+
+
 }

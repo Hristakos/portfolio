@@ -1,5 +1,8 @@
 import React from 'react';
 import "./Desk.css"
+import CoffeeCup from './CoffeeCup';
+
+
 export default function Desk(props) {
     return (
         <div>
@@ -7,12 +10,16 @@ export default function Desk(props) {
             <div className="desk">
                 <div className="contact">
 
-                    <a href="https://github.com/Hristakos"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/peter-hristakos/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Hristakos"><i className="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/peter-hristakos/"><i className="fab fa-linkedin"></i></a>
                 </div>
+                <div className="right-side-desk">
 
-                <div className="clock">
-                    {props.date.toLocaleTimeString()}
+
+                    <CoffeeCup />
+                    <div className="clock">
+                        {props.date.toLocaleTimeString()}
+                    </div>
                 </div>
             </div>
         </div>

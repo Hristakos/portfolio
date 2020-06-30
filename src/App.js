@@ -15,6 +15,7 @@ import Whiteboard from './Whiteboard';
 import Window from './Window';
 import Desk from './Desk';
 import Calendar from './Calendar';
+import CoffeeCup from './CoffeeCup';
 
 const technologies = [
   { name: "JavaScript", img: "/logo-javascript.png" },
@@ -213,9 +214,11 @@ class App extends React.Component {
                   <Window
                     handleWindowClick={this.setWindowOpen}
                     windowOpen={this.state.windowOpen} />
-                  <div>
-                    <img onClick={this.bootsClicked} src="/boots.jpeg"></img>
-                    <div style={{ display: this.state.bootsClicked ? "block" : "none" }}>Played for Maribyrnong Park Football Club 1990-2005</div>
+                  <div >
+                    <img className={this.state.bootsClicked ? "slide-left" : ""}
+                      onClick={this.bootsClicked} src="/boots.jpeg" />
+                    <p style={{ display: this.state.bootsClicked ? "block" : "none" }}>Maribyrnong Park Football Club 1990 - 2005</p>
+
                   </div>
                 </div>
 

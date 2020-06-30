@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-background-color: oldlace;
+background-color: oldlace; 
 }
 .App {
   text-align: center;
@@ -48,6 +48,7 @@ a {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
+  transition: all 1s ease-out;
 
 }
 
@@ -70,6 +71,7 @@ a {
   grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
   display: grid;
   justify-content: center;
+  
   /* align-items: center; */
 }
 .App .frontwall {
@@ -100,6 +102,31 @@ a {
   font-size: 50px;
 }
 
+.slide-left {
+	-webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+}
 
 @keyframes App-logo-spin {
   from {

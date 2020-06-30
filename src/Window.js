@@ -4,7 +4,7 @@ export default function Window(props) {
 
     return (
         <div className="frame">
-            <div className="window-open tilt-in-fwd-tr "
+            <div className={`window-open tilt-in-fwd-tr`}
                 onClick={props.handleWindowClick}
                 style={{ display: props.windowOpen ? "flex" : "none" }}>
                 <div className="vision-statement"
@@ -13,8 +13,9 @@ export default function Window(props) {
 
             <div className="window-closed"
                 onClick={props.handleWindowClick}>
-                <div className="panel-left"
-                    style={{ display: props.windowOpen ? "none" : "grid" }}>
+                <div className={`panel-left ${props.windowOpen ? "panel-left-open" : ""}`}
+
+                >
                     <div className="quater-panel-top-left">
 
                     </div>
@@ -22,8 +23,7 @@ export default function Window(props) {
 
                     </div>
                 </div>
-                <div className="panel-right"
-                    style={{ display: props.windowOpen ? "none" : "grid" }}>
+                <div className={`panel-right ${props.windowOpen ? "panel-right-open" : ""}`}>
                     <div className="quater-panel-top-right">
 
                     </div>
@@ -31,8 +31,8 @@ export default function Window(props) {
 
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
 
     )
 }

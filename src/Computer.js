@@ -15,9 +15,15 @@ export default function Computer(props) {
                     <img className="glideInUp" src={props.technology.img} alt={props.technology.name} />
                 </div>
             </div>
-            <div className="stand"><img src="apple-logo.png" alt="apple logo" /></div>
-            <div className="base"></div>
+            <div className="stand">
+                <div className="apple-logo" >
+                    <img src="apple-logo.png" alt="apple logo" />
+                </div>
+                <div className="collingwood-logo">
+                    <img src="collingwood-logo.png" alt="collingwood logo" />  </div>
 
+            </div>
+            <div className="base"></div>
         </div>
 
     )
