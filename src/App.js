@@ -248,7 +248,9 @@ class App extends React.Component {
 
               <div className="room-wrapper" >
                 <div className="splash"
-                  onClick={this.setSplash}>Welcome to my office. Feel free to click around.</div>
+                  onClick={this.setSplash}>
+                  <p>Welcome to my office.</p><p> Feel free to click around.</p>
+                </div>
                 <div className="backwall">
                   <FilingCabinet
                     drawerOpen={this.state.drawerOpen}
