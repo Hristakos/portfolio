@@ -46,7 +46,7 @@
     border: 1px solid brown;
 }
 .panel-right-open {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
     position: relative;
     right: -100%;
     top: -100%;
@@ -71,9 +71,9 @@
     border-left: 5px solid brown;
 }
 
-.frame:hover {
+/* .frame:hover {
     transform: scale(1.2);
-}
+} */
 
 .vision-statement {
     display: block;
@@ -112,3 +112,15 @@
     }
   }
   
+
+@media (max-width:400px){
+    .frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .vision-statement {
+        font-size: 10px;
+    }
+
+}

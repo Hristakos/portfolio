@@ -210,18 +210,19 @@ class App extends React.Component {
                   onFileClick={this.handleFileClick}
                   fileOpen={this.state.fileOpen}
                 />
+                <Window
+                  handleWindowClick={this.setWindowOpen}
+                  windowOpen={this.state.windowOpen} />
+
                 <Whiteboard
                   handleClick={this.setWhiteboardDisplay}
                   display={this.state.whiteboardDisplay} />
-                <Calendar
-                  data={calendarData}
-                  handlePageClick={this.turnCalendarPage}
-                  currentPage={this.state.calendarPage} />
 
-                <div className="window-boots">
-                  <Window
-                    handleWindowClick={this.setWindowOpen}
-                    windowOpen={this.state.windowOpen} />
+                <div className="calendar-boots">
+                  <Calendar
+                    data={calendarData}
+                    handlePageClick={this.turnCalendarPage}
+                    currentPage={this.state.calendarPage} />
                   <div >
                     <img className={this.state.bootsClicked ? "slide-left" : ""}
                       onClick={this.bootsClicked} src="/boots.jpeg" />
@@ -229,6 +230,7 @@ class App extends React.Component {
 
                   </div>
                 </div>
+
 
 
 

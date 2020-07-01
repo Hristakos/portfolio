@@ -10,7 +10,7 @@ export default function Project(props) {
             <div className="buttons">
 
                 <a className="back-button" href="/home">Back</a>
-                <a className="go-button" href={props.data.link}>Go</a>
+                <a target="_blank" className="go-button" href={props.data.link}>Go</a>
             </div>
 
         </div>

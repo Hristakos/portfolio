@@ -107,48 +107,105 @@
   }
 
   .move-right1 {
-      transform: rotate(90deg) ;
-      /* right: -175%;  */
+      transform: rotate(90deg)  ;
+      right: -175%; 
       height: 100%;
       display: flex;
       transition: all 1s;
       bottom: 0;
+
       
   }
   .move-right2 {
     transform: rotate(90deg) ;
-    /* right: 0%; */
+    right: -350%;
     height: 100%;
     display: flex;
     transition: all 1s;
-    bottom: -250%;
+    bottom: -20px;
 }
 .move-right3 {
     transform: rotate(90deg) ;
-    /* right: -175%; */
+    right: -175%;
     height: 100%;
     display: flex;
     transition: all 1s;
-    bottom: -500%;
+    bottom: -500px;
     
 }
 .move-right4 {
   transform: rotate(90deg) ;
-  /* right: -175%; */
+  right: -350%;
   height: 100%;
   display: flex;
   transition: all 1s;
-  bottom: -750%;
+  bottom: -520px;
   
 }
 .move-rightr {
     transform: rotate(90deg) ;
-    /* right: -175%;  */
+    right: -175%; 
     height: 100%;
     display: flex;
     transition: all 1s;
     bottom: 0;
 
+}
+
+
+@media (max-width:850px){
+    .cabinet {
+        transform: scale(.8);
+    }
+
+    .move-right1 {
+        transform: rotate(90deg) scale(.6);
+        left:-225%;/* right: 0; 
+        height: 100%;
+        display: flex;
+        transition: all 1s;
+        bottom: 0; */
+        
+    }
+    .move-right2 {
+      transform: rotate(90deg) scale(.6);
+      left: -300%;
+      /* right: 0;
+      height: 100%;
+      display: flex;
+      transition: all 1s;
+      bottom: -250%; */
+  }
+  .move-right3 {
+      transform: rotate(90deg) scale(.6) ;
+      left: -225%;
+      /* right: 0;
+      height: 100%;
+      display: flex;
+      transition: all 1s;
+      bottom: -500%; */
+      
+  }
+  .move-right4 {
+    transform: rotate(90deg) scale(.6);
+    left: -300%;
+    /* right: 0;
+    height: 100%;
+    display: flex;
+    transition: all 1s;
+    bottom: -750%; */
+    
+  }
+  .move-rightr {
+      transform: rotate(90deg) scale(.6);
+      left: -175%;
+      /* right: 0; 
+      height: 100%;
+      display: flex;
+      transition: all 1s;
+      bottom: 0; */
+  
+  }
 }
 
   .move-left {
