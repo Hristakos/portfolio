@@ -47,6 +47,7 @@ class App extends React.Component {
       { name: "stradbroke printing group", open: false, link: "/spg", img: "/spg.jpg" },
       { name: "peter hristakos", open: false, link: "/resume", img: "/Hristakos-resume.png" },
     ],
+    whiteboardDisplay: false,
     windowOpen: false,
     bootsClicked: false,
     date: new Date(),
@@ -161,6 +162,11 @@ class App extends React.Component {
   setSplash = () => {
     this.setState({ splash: !this.state.splash })
   }
+
+  setWhiteboardDisplay = () => {
+    this.setState({ whiteboardDisplay: true })
+  }
+
   render() {
     const date = new Date()
     return (
@@ -204,7 +210,9 @@ class App extends React.Component {
                   onFileClick={this.handleFileClick}
                   fileOpen={this.state.fileOpen}
                 />
-                <Whiteboard />
+                <Whiteboard
+                  handleClick={this.setWhiteboardDisplay}
+                  display={this.state.whiteboardDisplay} />
                 <Calendar
                   data={calendarData}
                   handlePageClick={this.turnCalendarPage}

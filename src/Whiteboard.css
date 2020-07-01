@@ -10,9 +10,12 @@
     flex-direction: column;
     justify-content: space-evenly;
     font-family: 'Gloria Hallelujah', cursive;
+    cursor: pointer;
  
-   
-    
+}
+.whiteboard .display {
+    display:grid;
+    grid-gap: 20px;
 }
 .whiteboard a {
     color: darkorange;
