@@ -45,7 +45,7 @@ class App extends React.Component {
       { name: "classic car parts", open: false, link: "/classic-car-parts", img: "/classic-car-parts.jpg" },
       { name: "beer buddy", open: false, link: "/beer-buddy", img: "/beer-buddy.jpg" },
       { name: "stradbroke printing group", open: false, link: "/spg", img: "/spg.jpg" },
-      { name: "peter hristakos", open: false, link: "/resume", img: "/Hristakos-resume.png" },
+      { name: "peter hristakos", open: false, link: "https://drive.google.com/file/d/1fmFPvpWNamDu3_P9OZFMc6m21OqXi7ZB/view?usp=sharing", img: "/Hristakos-Resume.png" },
     ],
     whiteboardDisplay: false,
     windowOpen: false,
